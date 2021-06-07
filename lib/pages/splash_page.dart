@@ -22,7 +22,6 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void initState() {
-    redirect();
     super.initState();
   }
 
