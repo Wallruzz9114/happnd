@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happnd/pages/login_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -25,6 +26,15 @@ class _SplashPageState extends State<SplashPage> {
 
   Future<void> redirect() async {
     await _restoreSession();
+    redirectToLoginPage();
+  }
+
+  void redirectToLoginPage() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (_) => const LoginPage(),
+      ),
+    );
   }
 
   Future<void> _restoreSession() async {}
