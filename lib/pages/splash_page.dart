@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:happnd/pages/login_page.dart';
+import 'package:happnd/pages/signin_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -26,13 +26,13 @@ class _SplashPageState extends State<SplashPage> {
 
   Future<void> redirect() async {
     await _restoreSession();
-    redirectToLoginPage();
+    redirectToSigninPage();
   }
 
-  void redirectToLoginPage() {
+  void redirectToSigninPage() {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (_) => const LoginPage(),
+        builder: (_) => const SigninPage(),
       ),
     );
   }
