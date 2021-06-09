@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:happnd/components/app_scaffold.dart';
 import 'package:happnd/components/login_button.dart';
-import 'package:happnd/pages/tab_page.dart';
+import 'package:happnd/pages/root_page.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
@@ -23,31 +23,31 @@ class _SigninPageState extends State<SigninPage> with TickerProviderStateMixin {
     curve: Curves.easeOutCubic,
   );
 
-  late final _delayedController = AnimationController(
+  late final _yellowBlobAnimationController = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 2),
   );
 
   late final _delayedCurvedAnimation = CurvedAnimation(
-    parent: _delayedController,
+    parent: _yellowBlobAnimationController,
     curve: Curves.easeOutCubic,
   );
 
-  late final _moreDelayedController = AnimationController(
+  late final _redBlobAnimationController = AnimationController(
     duration: const Duration(seconds: 2),
     vsync: this,
   );
 
   late final _moreDdelayedCurvedAnimation = CurvedAnimation(
-    parent: _moreDelayedController,
+    parent: _redBlobAnimationController,
     curve: Curves.easeOutCubic,
   );
 
   Future<void> _playDelayedAnimation() async {
     await Future.delayed(const Duration(milliseconds: 700));
-    await _delayedController.forward();
+    await _yellowBlobAnimationController.forward();
     await Future.delayed(const Duration(milliseconds: 400));
-    await _moreDelayedController.forward();
+    await _redBlobAnimationController.forward();
   }
 
   @override
@@ -59,8 +59,8 @@ class _SigninPageState extends State<SigninPage> with TickerProviderStateMixin {
   @override
   void dispose() {
     _controller.dispose();
-    _delayedController.dispose();
-    _moreDelayedController.dispose();
+    _yellowBlobAnimationController.dispose();
+    _redBlobAnimationController.dispose();
     super.dispose();
   }
 
@@ -168,7 +168,7 @@ class _SigninPageState extends State<SigninPage> with TickerProviderStateMixin {
                           const SizedBox(height: 24.5),
                           LoginButton(
                             onPressed: () {
-                              Navigator.of(context).push(TabPage.route());
+                              Navigator.of(context).push(RootPage.route());
                             },
                             label: 'Sign in with Google',
                             icon: Image.asset(
@@ -180,7 +180,7 @@ class _SigninPageState extends State<SigninPage> with TickerProviderStateMixin {
                           const SizedBox(height: 24.5),
                           LoginButton(
                             onPressed: () {
-                              Navigator.of(context).push(TabPage.route());
+                              Navigator.of(context).push(RootPage.route());
                             },
                             label: 'Sign in with Apple',
                             icon: Image.asset(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MapTab extends StatelessWidget {
-  const MapTab({Key? key}) : super(key: key);
+class AlertsPage extends StatelessWidget {
+  const AlertsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

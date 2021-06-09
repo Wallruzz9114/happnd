@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:happnd/components/gradient_border_painter.dart';
+import 'package:happnd/components/gradient_border.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({
@@ -17,16 +17,14 @@ class LoginButton extends StatelessWidget {
   final Widget _icon;
 
   @override
-  CustomPaint build(BuildContext context) {
-    return CustomPaint(
-      painter: GradientBorderPainter(
-        strokeWidth: 1,
-        radius: 4,
-        gradient: const LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: [Color(0xFFD83B63), Color(0xFFDFC14F)],
-        ),
+  GradientBorder build(BuildContext context) {
+    return GradientBorder(
+      strokeWidth: 1,
+      borderRadius: 4,
+      gradient: const LinearGradient(
+        begin: Alignment.centerLeft,
+        end: Alignment.centerRight,
+        colors: [Color(0xFFD83B63), Color(0xFFDFC14F)],
       ),
       child: Material(
         clipBehavior: Clip.hardEdge,
