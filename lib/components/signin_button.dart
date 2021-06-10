@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:happnd/app/constants.dart';
 import 'package:happnd/components/gradient_border.dart';
 
-class LoginButton extends StatelessWidget {
-  const LoginButton({
+class SignInButton extends StatelessWidget {
+  const SignInButton({
     Key? key,
     required void Function() onPressed,
     required String label,
@@ -24,12 +25,12 @@ class LoginButton extends StatelessWidget {
       gradient: const LinearGradient(
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
-        colors: [Color(0xFFD83B63), Color(0xFFDFC14F)],
+        colors: [appRed, appYellow],
       ),
       child: Material(
         clipBehavior: Clip.hardEdge,
         borderRadius: BorderRadius.circular(4),
-        color: const Color(0xFF000000).withOpacity(0.2),
+        color: appBlack.withOpacity(0.2),
         child: InkWell(
           onTap: _onPressed,
           child: Padding(

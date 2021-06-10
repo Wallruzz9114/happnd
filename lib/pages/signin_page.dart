@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:happnd/components/app_scaffold.dart';
-import 'package:happnd/components/login_button.dart';
+import 'package:happnd/components/signin_button.dart';
 import 'package:happnd/pages/root_page.dart';
 
 class SigninPage extends StatefulWidget {
@@ -166,7 +166,7 @@ class _SigninPageState extends State<SigninPage> with TickerProviderStateMixin {
                         children: [
                           const Text('Sign in', style: TextStyle(fontSize: 18)),
                           const SizedBox(height: 24.5),
-                          LoginButton(
+                          SignInButton(
                             onPressed: () {
                               Navigator.of(context).push(RootPage.route());
                             },
@@ -178,7 +178,7 @@ class _SigninPageState extends State<SigninPage> with TickerProviderStateMixin {
                             ),
                           ),
                           const SizedBox(height: 24.5),
-                          LoginButton(
+                          SignInButton(
                             onPressed: () {
                               Navigator.of(context).push(RootPage.route());
                             },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happnd/app/constants.dart';
 
 class AppScaffold extends Scaffold {
   AppScaffold({
@@ -18,14 +19,11 @@ class AppScaffold extends Scaffold {
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xFF4B3199),
-                      Color(0xFF2284A9),
-                    ],
+                    colors: [appPurple, appBlue],
                   ),
                 ),
               ),
-              body,
+              body
             ],
           ),
           floatingActionButton: floatingActionButton,

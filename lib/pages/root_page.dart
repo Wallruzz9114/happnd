@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happnd/app/constants.dart';
 import 'package:happnd/components/app_scaffold.dart';
 import 'package:happnd/pages/alerts_page.dart';
 import 'package:happnd/pages/map_page.dart';
@@ -25,11 +26,11 @@ class _RootPageState extends State<RootPage> {
     return AppScaffold(
       body: IndexedStack(
         index: _currentIndex,
-        children: const <Widget>[
+        children: <Widget>[
           MapPage(),
-          SearchPage(),
-          AlertsPage(),
-          ProfilePage()
+          const SearchPage(),
+          const AlertsPage(),
+          const ProfilePage()
         ],
       ),
       bottomNavigationBar: Material(
@@ -38,7 +39,7 @@ class _RootPageState extends State<RootPage> {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color(0xFF40489D), Color(0xFF2D6FA5)],
+              colors: [appPurple, appBlue],
             ),
           ),
           child: Padding(
@@ -80,34 +81,36 @@ class _RootPageState extends State<RootPage> {
     );
   }
 
-  InkWell _bottomNavigationButton({
+  Expanded _bottomNavigationButton({
     required String label,
     required Widget icon,
     required int tabIndex,
   }) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          _currentIndex = tabIndex;
-        });
-      },
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
-            width: 24,
-            height: 24,
-            child: icon,
-          ),
-          const SizedBox(height: 4.5),
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w300,
+    return Expanded(
+      child: InkResponse(
+        onTap: () {
+          setState(() {
+            _currentIndex = tabIndex;
+          });
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              width: 24,
+              height: 24,
+              child: icon,
             ),
-          ),
-        ],
+            const SizedBox(height: 4.5),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

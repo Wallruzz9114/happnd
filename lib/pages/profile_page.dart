@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:happnd/components/user_profile.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Container();
+  UserProfile build(BuildContext context) {
+    return UserProfile();
   }
 }
